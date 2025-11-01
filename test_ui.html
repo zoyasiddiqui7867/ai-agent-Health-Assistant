@@ -7,14 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* NEW UNIQUE PALETTE: Charcoal, Cyan, Coral */
-            --primary-color: #F96167; /* Bright Coral - Action */
-            --secondary-color: #00CEC9; /* Bright Cyan - Analysis/Glow */
-            --background-dark: #18191D; /* Deep Charcoal */
-            --background-light: #25262B; /* Medium Charcoal (Card Background) */
-            --text-light: #F8F9FA; /* Off-White Text */
-            --text-dim: #A0A0A0; /* Dim Text */
-            --border-color: #3B3C42; /* Dark Border */
+            --primary-color: #F96167;
+            --secondary-color: #00CEC9;
+            --background-dark: #18191D;
+            --background-light: #25262B;
+            --text-light: #F8F9FA;
+            --text-dim: #A0A0A0;
+            --border-color: #3B3C42;
             --shadow-subtle: rgba(0, 0, 0, 0.4);
         }
 
@@ -22,7 +21,6 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            /* Radial gradient for dark, atmospheric background */
             background: radial-gradient(circle at 50% 50%, #202024 0%, var(--background-dark) 100%);
             display: flex;
             justify-content: center;
@@ -30,10 +28,8 @@
             min-height: 100vh;
             color: var(--text-light);
             position: relative;
-            /* Scroll fix is implicit here by not setting overflow: hidden */
         }
-        
-        /* New CSS Animation for futuristic glow */
+       
         body::before {
             content: '';
             position: fixed;
@@ -44,10 +40,10 @@
             background: var(--secondary-color);
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0.9);
-            z-index: -1; /* Place it behind the content */
-            filter: blur(80px); /* Soft glow */
+            z-index: -1;
+            filter: blur(80px);
             animation: pulseGlow 8s ease-in-out infinite alternate;
-            opacity: 0.1; /* Very subtle */
+            opacity: 0.1;
         }
 
         @keyframes pulseGlow {
@@ -65,9 +61,9 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
-            z-index: 10; /* Ensure content is above background effects */
-            border: 1px solid var(--border-color); /* Subtle frame */
-            margin: 40px 0; /* Added margin to allow content to breathe on small screens */
+            z-index: 10;
+            border: 1px solid var(--border-color);
+            margin: 40px 0;
         }
 
         h1 {
@@ -77,7 +73,7 @@
             font-size: 2.2em;
             font-weight: 700;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(0, 206, 201, 0.5); /* Cyan glow */
+            text-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
         }
 
         h1 .icon {
@@ -96,7 +92,7 @@
             padding: 14px;
             border-radius: 10px;
             border: 2px solid var(--border-color);
-            background: #33343A; /* Input background */
+            background: #33343A;
             color: var(--text-light);
             font-size: 1em;
             outline: none;
@@ -107,8 +103,7 @@
             border-color: var(--secondary-color);
             box-shadow: 0 0 0 3px rgba(0, 206, 201, 0.3);
         }
-        
-        /* Custom Placeholder Color */
+       
         input::placeholder {
             color: var(--text-dim);
             opacity: 0.7;
@@ -129,7 +124,7 @@
             font-size: 1.0em;
             font-weight: 600;
             cursor: pointer;
-            color: var(--background-dark); /* Dark text on bright buttons */
+            color: var(--background-dark);
             box-shadow: 0 4px 8px var(--shadow-subtle);
             transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
             min-width: 180px;
@@ -147,6 +142,7 @@
 
         button.secondary {
             background: var(--secondary-color);
+            color: var(--background-dark);
         }
 
         button.secondary:hover {
@@ -154,11 +150,11 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 206, 201, 0.4);
         }
-        
+       
         .examples {
             margin-top: 10px;
             padding: 20px;
-            background: #2E2F36; /* Slightly lighter box for contrast */
+            background: #2E2F36;
             border-radius: 15px;
             border: 1px solid var(--border-color);
             text-align: center;
@@ -197,7 +193,7 @@
         #answer {
             margin-top: 20px;
             padding: 30px;
-            background: var(--background-dark); /* Dark response panel */
+            background: var(--background-dark);
             border: 2px solid var(--secondary-color);
             border-radius: 15px;
             white-space: pre-wrap;
@@ -225,7 +221,6 @@
             color: var(--text-dim);
         }
 
-        /* Specific styles for the loading text to make it stand out */
         .loading-status-text {
             color: var(--secondary-color);
             font-weight: 500;
@@ -234,7 +229,7 @@
         }
 
         .loading-countdown {
-            font-size: 1.5em; /* Larger countdown number */
+            font-size: 1.5em;
             font-weight: 700;
             color: var(--primary-color);
             display: inline-block;
@@ -245,9 +240,9 @@
             display: inline-block;
             width: 1em;
             height: 1em;
-            border: 3px solid rgba(249, 97, 103, 0.3); /* Coral transparent border */
+            border: 3px solid rgba(249, 97, 103, 0.3);
             border-radius: 50%;
-            border-top-color: var(--primary-color); /* Coral spinning part */
+            border-top-color: var(--primary-color);
             animation: spin 1s ease-in-out infinite;
             margin-left: 0.5em;
             vertical-align: middle;
@@ -257,7 +252,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .container {
                 padding: 25px;
@@ -283,21 +277,21 @@
 </head>
 <body>
     <div class="container">
-        <!-- New Heading and App Name -->
         <h1><span class="icon">⚕️</span> Syncarec: Health Assistant</h1>
-        
+       
         <div class="input-section">
-            <input 
-                type="text" 
-                id="question" 
+            <input
+                type="text"
+                id="question"
                 placeholder="Ask about your health records... (e.g., When did I last visit the doctor?)"
             />
-            
+           
             <div class="button-group">
                 <button onclick="askQuestion()" class="primary">Ask AI Agent</button>
+                <button onclick="analyzeHealth()" class="secondary">Get Health Analysis</button>
             </div>
         </div>
-        
+       
         <div class="examples">
             <strong>💡 Quick Questions:</strong>
             <div class="example-buttons">
@@ -308,50 +302,45 @@
                 <button onclick="setQuestion('I have been having fever for 3 weeks, should I be worried?')">Fever Analysis</button>
             </div>
         </div>
-        
-        <div id="answer" class="">
+       
+        <div id="answer">
             <strong>AI Response:</strong><br><br>
             <span id="answerText"></span>
         </div>
     </div>
 
     <script>
-        // Loading Messages for innovative feedback
         const loadingMessages = [
             'Analyzing health records...',
             'Synthesizing data patterns...',
             'Consulting virtual medical knowledge...',
             'Generating secure, concise answer...'
         ];
-        
+       
         let loadingInterval;
-        let countdown = 6; // Initial countdown value
+        let countdown = 6;
 
         function setQuestion(q) {
             document.getElementById('question').value = q;
         }
-
-        async function makeApiCall(endpoint, payload) {
+       
+        function startLoading(endpoint) {
             const answerDiv = document.getElementById('answer');
             const answerText = document.getElementById('answerText');
-            
-            // --- FIX: START INNOVATIVE LOADING SEQUENCE IMMEDIATELY ---
+           
             answerDiv.style.display = 'block';
-            answerDiv.classList.remove('show'); 
-
+            answerDiv.classList.remove('show');
+           
             let messageIndex = 0;
-            countdown = 6; // Reset countdown for every new call
-            
+            countdown = 6;
+           
             const cycleTextAndCountdown = () => {
-                // 1. Cycle Message (Less frequent, e.g., every 3 seconds)
                 if (countdown > 0 && countdown % 3 === 0) {
                     messageIndex = (messageIndex + 1) % loadingMessages.length;
                 }
 
-                // 2. Update Text with Countdown and enhanced formatting
-                // We stop the display update when countdown hits 0 (after decrementing from 1)
-                if (countdown >= 1) { 
-                    answerText.innerHTML = 
+                if (countdown >= 1) {
+                    answerText.innerHTML =
                         `<span class="loading-status-text">
                             🧠 AGENT STATUS: ${loadingMessages[messageIndex]}
                         </span>
@@ -365,9 +354,7 @@
                             <span class="loading-animation"></span>
                         </div>`;
                 } else {
-                    // When countdown hits 0, display the last status message with a static text
-                    // This achieves the goal of removing the '0s' but keeping the message
-                    answerText.innerHTML = 
+                    answerText.innerHTML =
                         `<span class="loading-status-text">
                              🧠 AGENT STATUS: ${loadingMessages[messageIndex]}
                          </span>
@@ -377,18 +364,28 @@
                              </span>
                          </div>`;
                 }
-                
-                // 3. Decrement Countdown, stop at 0
+               
                 countdown = Math.max(0, countdown - 1);
             };
 
-            // Display initial message immediately and start countdown cycle (every 1000ms/1s)
             cycleTextAndCountdown();
-            loadingInterval = setInterval(cycleTextAndCountdown, 1000); 
-            // --- END LOADING SEQUENCE SETUP ---
+            loadingInterval = setInterval(cycleTextAndCountdown, 1000);
+        }
+
+        async function makeApiCall(endpoint, payload) {
+            const answerDiv = document.getElementById('answer');
+            const answerText = document.getElementById('answerText');
+
+            if (endpoint === 'ask' && (!payload.question || payload.question.trim() === '')) {
+                answerDiv.style.display = 'block';
+                answerText.textContent = 'Please enter a question!';
+                answerDiv.classList.add('show');
+                return;
+            }
+
+            startLoading(endpoint);
 
             try {
-                // Fetch call to your Flask backend
                 const response = await fetch(`http://localhost:5001/api/${endpoint}`, {
                     method: 'POST',
                     headers: {
@@ -398,7 +395,7 @@
                 });
 
                 const data = await response.json();
-                
+               
                 if (data.success) {
                     answerText.textContent = data.answer || data.analysis;
                 } else {
@@ -407,44 +404,31 @@
             } catch (error) {
                 answerText.textContent = 'Error connecting to AI agent: ' + error.message;
             } finally {
-                // Clear the cycling message and countdown interval
                 if (loadingInterval) {
                     clearInterval(loadingInterval);
                 }
 
-                // Apply transition class after content is loaded
                 setTimeout(() => {
-                    answerDiv.classList.add('show'); 
+                    answerDiv.classList.add('show');
                 }, 10);
             }
         }
 
-        function askQuestion() {
-            // NOTE: Alert replaced with standard JS warning.
+        async function askQuestion() {
             const question = document.getElementById('question').value;
-            if (!question) {
-                 const answerText = document.getElementById('answerText');
-                 document.getElementById('answer').style.display = 'block';
-                 answerText.textContent = 'Please enter a question!';
-                 document.getElementById('answer').classList.add('show');
-                return;
-            }
             makeApiCall('ask', { question });
         }
 
-        function analyzeHealth() {
-            // This function is still defined but no longer has a corresponding button.
+        async function analyzeHealth() {
             makeApiCall('analyze', { patient_id: 'test_patient' });
         }
 
-        // Allow Enter key to submit
         document.getElementById('question').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 askQuestion();
             }
         });
-        
-        // Initial state: hide answer div on page load
+       
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('answer').style.display = 'none';
         });
