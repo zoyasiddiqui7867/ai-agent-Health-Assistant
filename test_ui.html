@@ -360,9 +360,13 @@
             makeApiCall('ask', { question });
         }
 
-        async function analyzeHealth() {
-            makeApiCall('analyze', { patient_id: 'test_patient' });
-        }
+       async function analyzeHealth() {
+    // Set a detailed analysis question
+    const analysisQuestion = "Give my health analysis?";
+    
+    // Use the 'ask' endpoint with this detailed question
+    makeApiCall('ask', { question: analysisQuestion });
+}
 
         // Allow Enter key to submit
         document.getElementById('question').addEventListener('keypress', function(e) {
