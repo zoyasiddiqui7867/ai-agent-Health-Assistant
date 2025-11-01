@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syncarec: Health Assistant</title>
+    <title>SynCure: Health Assistant</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #F96167;
-            --secondary-color: #00CEC9;
-            --background-dark: #18191D;
-            --background-light: #25262B;
-            --text-light: #F8F9FA;
-            --text-dim: #A0A0A0;
-            --border-color: #3B3C42;
+            /* NEW UNIQUE PALETTE: Charcoal, Cyan, Coral */
+            --primary-color: #F96167; /* Bright Coral - Action */
+            --secondary-color: #00CEC9; /* Bright Cyan - Analysis/Glow */
+            --background-dark: #18191D; /* Deep Charcoal */
+            --background-light: #25262B; /* Medium Charcoal (Card Background) */
+            --text-light: #F8F9FA; /* Off-White Text */
+            --text-dim: #A0A0A0; /* Dim Text */
+            --border-color: #3B3C42; /* Dark Border */
             --shadow-subtle: rgba(0, 0, 0, 0.4);
         }
+
 
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            /* Radial gradient for dark, atmospheric background */
             background: radial-gradient(circle at 50% 50%, #202024 0%, var(--background-dark) 100%);
             display: flex;
             justify-content: center;
@@ -30,6 +33,7 @@
             position: relative;
         }
        
+        /* New CSS Animation for futuristic glow */
         body::before {
             content: '';
             position: fixed;
@@ -40,16 +44,18 @@
             background: var(--secondary-color);
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0.9);
-            z-index: -1;
-            filter: blur(80px);
+            z-index: -1; /* Place it behind the content */
+            filter: blur(80px); /* Soft glow */
             animation: pulseGlow 8s ease-in-out infinite alternate;
-            opacity: 0.1;
+            opacity: 0.1; /* Very subtle */
         }
+
 
         @keyframes pulseGlow {
             0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.15; }
             100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.05; }
         }
+
 
         .container {
             background: var(--background-light);
@@ -66,6 +72,7 @@
             margin: 40px 0;
         }
 
+
         h1 {
             color: var(--text-light);
             text-align: center;
@@ -73,13 +80,15 @@
             font-size: 2.2em;
             font-weight: 700;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
+            text-shadow: 0 0 10px rgba(0, 206, 201, 0.5); /* Cyan glow */
         }
+
 
         h1 .icon {
             font-size: 1.1em;
             color: var(--secondary-color);
         }
+
 
         .input-section {
             display: flex;
@@ -87,17 +96,19 @@
             gap: 15px;
         }
 
+
         input[type="text"] {
             width: calc(100% - 28px);
             padding: 14px;
             border-radius: 10px;
             border: 2px solid var(--border-color);
-            background: #33343A;
+            background: #33343A; /* Input background */
             color: var(--text-light);
             font-size: 1em;
             outline: none;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
 
         input[type="text"]:focus {
             border-color: var(--secondary-color);
@@ -109,12 +120,14 @@
             opacity: 0.7;
         }
 
+
         .button-group {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
+
 
         button {
             flex-grow: 1;
@@ -130,9 +143,11 @@
             min-width: 180px;
         }
 
+
         button.primary {
             background: var(--primary-color);
         }
+
 
         button.primary:hover {
             background: #E35056;
@@ -140,10 +155,12 @@
             box-shadow: 0 6px 12px rgba(249, 97, 103, 0.4);
         }
 
+
         button.secondary {
             background: var(--secondary-color);
-            color: var(--background-dark);
+            color: var(--background-dark); /* Ensure contrast */
         }
+
 
         button.secondary:hover {
             background: #00B1AD;
@@ -160,12 +177,14 @@
             text-align: center;
         }
 
+
         .examples strong {
             color: var(--secondary-color);
             margin-bottom: 10px;
             display: block;
             font-weight: 600;
         }
+
 
         .examples .example-buttons {
             display: flex;
@@ -174,6 +193,7 @@
             justify-content: center;
             margin-top: 10px;
         }
+
 
         .examples button {
             background: var(--border-color);
@@ -185,10 +205,12 @@
             box-shadow: none;
         }
 
+
         .examples button:hover {
             background: #4A4B55;
             transform: none;
         }
+
 
         #answer {
             margin-top: 20px;
@@ -204,10 +226,12 @@
             transform: translateY(10px);
         }
 
+
         #answer.show {
             opacity: 1;
             transform: translateY(0);
         }
+
 
         #answer strong {
             color: var(--primary-color);
@@ -216,42 +240,14 @@
             display: block;
         }
 
+
         #answerText {
             line-height: 1.7;
             color: var(--text-dim);
         }
 
-        .loading-status-text {
-            color: var(--secondary-color);
-            font-weight: 500;
-            display: block;
-            margin-bottom: 8px;
-        }
 
-        .loading-countdown {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        .loading-animation {
-            display: inline-block;
-            width: 1em;
-            height: 1em;
-            border: 3px solid rgba(249, 97, 103, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 1s ease-in-out infinite;
-            margin-left: 0.5em;
-            vertical-align: middle;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .container {
                 padding: 25px;
@@ -277,7 +273,8 @@
 </head>
 <body>
     <div class="container">
-        <h1><span class="icon">⚕️</span> Syncarec: Health Assistant</h1>
+        <!-- Corrected H1 Title -->
+        <h1><span class="icon">⚕️</span> SynCure: Health Assistant</h1>
        
         <div class="input-section">
             <input
@@ -287,7 +284,9 @@
             />
            
             <div class="button-group">
+                <!-- Primary Action Button -->
                 <button onclick="askQuestion()" class="primary">Ask AI Agent</button>
+                <!-- Secondary Action Button (Restored) -->
                 <button onclick="analyzeHealth()" class="secondary">Get Health Analysis</button>
             </div>
         </div>
@@ -303,79 +302,23 @@
             </div>
         </div>
        
-        <div id="answer">
+        <div id="answer" class="">
             <strong>AI Response:</strong><br><br>
             <span id="answerText"></span>
         </div>
     </div>
 
-    <script>
-        const loadingMessages = [
-            'Analyzing health records...',
-            'Synthesizing data patterns...',
-            'Consulting virtual medical knowledge...',
-            'Generating secure, concise answer...'
-        ];
-       
-        let loadingInterval;
-        let countdown = 6;
 
+    <script>
         function setQuestion(q) {
             document.getElementById('question').value = q;
-        }
-       
-        function startLoading(endpoint) {
-            const answerDiv = document.getElementById('answer');
-            const answerText = document.getElementById('answerText');
-           
-            answerDiv.style.display = 'block';
-            answerDiv.classList.remove('show');
-           
-            let messageIndex = 0;
-            countdown = 6;
-           
-            const cycleTextAndCountdown = () => {
-                if (countdown > 0 && countdown % 3 === 0) {
-                    messageIndex = (messageIndex + 1) % loadingMessages.length;
-                }
-
-                if (countdown >= 1) {
-                    answerText.innerHTML =
-                        `<span class="loading-status-text">
-                            🧠 AGENT STATUS: ${loadingMessages[messageIndex]}
-                        </span>
-                        <div>
-                            <span class="loading-countdown">
-                                ${countdown}s
-                            </span>
-                            <span style="font-weight: 300; color: var(--text-dim);">
-                               Estimated Time Remaining
-                            </span>
-                            <span class="loading-animation"></span>
-                        </div>`;
-                } else {
-                    answerText.innerHTML =
-                        `<span class="loading-status-text">
-                             🧠 AGENT STATUS: ${loadingMessages[messageIndex]}
-                         </span>
-                         <div>
-                             <span class="loading-countdown" style="font-size: 1.2em;">
-                                 (Processing final result...)
-                             </span>
-                         </div>`;
-                }
-               
-                countdown = Math.max(0, countdown - 1);
-            };
-
-            cycleTextAndCountdown();
-            loadingInterval = setInterval(cycleTextAndCountdown, 1000);
         }
 
         async function makeApiCall(endpoint, payload) {
             const answerDiv = document.getElementById('answer');
             const answerText = document.getElementById('answerText');
 
+            // Check for required input (only for 'ask' endpoint)
             if (endpoint === 'ask' && (!payload.question || payload.question.trim() === '')) {
                 answerDiv.style.display = 'block';
                 answerText.textContent = 'Please enter a question!';
@@ -383,7 +326,10 @@
                 return;
             }
 
-            startLoading(endpoint);
+            // Show answer box immediately (empty)
+            answerDiv.style.display = 'block';
+            answerDiv.classList.remove('show');
+            answerText.textContent = '';
 
             try {
                 const response = await fetch(`http://localhost:5001/api/${endpoint}`, {
@@ -404,13 +350,8 @@
             } catch (error) {
                 answerText.textContent = 'Error connecting to AI agent: ' + error.message;
             } finally {
-                if (loadingInterval) {
-                    clearInterval(loadingInterval);
-                }
-
-                setTimeout(() => {
-                    answerDiv.classList.add('show');
-                }, 10);
+                // Show the final result
+                answerDiv.classList.add('show');
             }
         }
 
@@ -423,12 +364,14 @@
             makeApiCall('analyze', { patient_id: 'test_patient' });
         }
 
+        // Allow Enter key to submit
         document.getElementById('question').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 askQuestion();
             }
         });
        
+        // Initial state: hide answer div on page load
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('answer').style.display = 'none';
         });
